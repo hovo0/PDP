@@ -91,7 +91,7 @@ tree.preorder_traversal()  # Output: 5 3 2 4 8 7 9
 print("\nPostorder traversal:")
 tree.postorder_traversal()  # Output: 2 4 3 7 9 8 5
 
-# Search for a node
+# Search for a node.
 result = tree.search(4)
 if result:
     print("\nNode found:", result.data)
