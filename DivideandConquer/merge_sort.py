@@ -1,10 +1,21 @@
-def merge_sort(arr):
-    if len(arr) <= 1:
-        return arr
+"""
+This module provides an implementation of the merge sort algorithm.
+"""
 
-    mid = len(arr) // 2
-    left_arr = arr[:mid]
-    right_arr = arr[mid:]
+
+def merge_sort(array):
+    """
+    Sorts the given array using the merge sort algorithm.
+
+    :param array: The array to be sorted.
+    :return: The sorted array.
+    """
+    if len(array) <= 1:
+        return array
+
+    mid = len(array) // 2
+    left_arr = array[:mid]
+    right_arr = array[mid:]
 
     left_arr = merge_sort(left_arr)
     right_arr = merge_sort(right_arr)
@@ -13,6 +24,13 @@ def merge_sort(arr):
 
 
 def merge(left_arr, right_arr):
+    """
+    Merges two sorted arrays into a single sorted array.
+
+    :param left_arr: The left sorted array.
+    :param right_arr: The right sorted array.
+    :return: The merged and sorted array.
+    """
     result = []
     i = j = 0
     while i < len(left_arr) and j < len(right_arr):
@@ -27,6 +45,8 @@ def merge(left_arr, right_arr):
     result += right_arr[j:]
 
     return result
-arr = [3, 1, 4, 1, 5, 9, 2, 6, 5, 3, 5,4,7,9,456,454,15,2,512,455412,1515,4415,47,521,0]
-sorted_arr = merge_sort(arr)
-print(sorted_arr) # [0, 1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 5, 6, 7, 9, 9, 15, 47, 454, 456, 512, 521, 1515, 4415, 455412]
+
+
+array = [3, 1, 4, 1, 456, 454, 15, 2, 512, 455412, 1515, 4415, 47, 521, 0]
+sorted_arr = merge_sort(array)
+print(sorted_arr)  # [0, 1, 1, 2, 3, 4, 15, 47, 454, 456, 512, 521, 1515, 4415, 455412]

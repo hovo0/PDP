@@ -1,13 +1,21 @@
+"""
+This module defines the Array class for creating and manipulating arrays.
+"""
+
 class Array:
+    """
+    Array is a class that represents a fixed-size array data structure.
+    """
+
     def __init__(self, size):
         self.size = size
         self.data = [None] * size
 
     def get(self, index):
         """
-        Get a value from the array
-        :param index:
-        :return:
+        Get a value from the array.
+        :param index: The index of the value to retrieve.
+        :return: The value at the specified index.
         """
         if index < 0 or index >= self.size:
             raise IndexError("Index out of range")
@@ -15,10 +23,9 @@ class Array:
 
     def set(self, index, value):
         """
-        Set values in the array
-        :param index:
-        :param value:
-        :return:
+        Set a value in the array.
+        :param index: The index at which to set the value.
+        :param value: The value to set.
         """
         if index < 0 or index >= self.size:
             raise IndexError("Index out of range")
@@ -26,17 +33,16 @@ class Array:
 
     def __len__(self):
         """
-        Len of array
-        :return:
+        Get the length of the array.
+        :return: The size of the array.
         """
         return self.size
 
     def insert(self, index, value):
         """
-        Insert a value into the array
-        :param index:
-        :param value:
-        :return:
+        Insert a value into the array.
+        :param index: The index at which to insert the value.
+        :param value: The value to insert.
         """
         if index < 0 or index > self.size:
             raise IndexError("Index out of range")
@@ -49,9 +55,8 @@ class Array:
 
     def remove(self, value):
         """
-        Remove a value from the array
-        :param value:
-        :return:
+        Remove a value from the array.
+        :param value: The value to remove.
         """
         for i in range(self.size):
             if self.data[i] == value:
@@ -61,9 +66,8 @@ class Array:
 
     def delete(self, index):
         """
-        Delete a value from the array
-        :param index:
-        :return:
+        Delete a value from the array.
+        :param index: The index of the value to delete.
         """
         if index < 0 or index >= self.size:
             raise IndexError("Index out of range")
@@ -76,14 +80,20 @@ class Array:
 
     def resize(self, new_size):
         """
-        Resize the array
-        :param new_size:
-        :return:
+        Resize the array.
+        :param new_size: The new size of the array.
         """
         new_data = [None] * new_size
         for i in range(self.size):
             new_data[i] = self.data[i]
         self.data = new_data
+
+    def __str__(self):
+        """
+        Get a string representation of the array.
+        :return: The string representation of the array.
+        """
+        return str(self.data[:self.size])
 
 
 arr = Array(5)

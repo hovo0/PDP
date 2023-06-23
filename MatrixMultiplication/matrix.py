@@ -1,43 +1,49 @@
-def multiply_matrices(A, B):
+"""
+This module provides a matrix multiplication function.
+"""
+
+
+def multiply_matrices(matrix_a, matrix_b):
     """
     Multiply two matrices A and B.
-    :param A: Matrix A
-    :param B: Matrix B
+
+    :param matrix_a: Matrix A.
+    :param matrix_b: Matrix B.
     :return: The resulting matrix after multiplication.
     """
-    result = [[0] * len(B[0]) for _ in range(len(A))]
+    result = [[0] * len(matrix_b[0]) for _ in range(len(matrix_a))]
 
-    for i in range(len(A)):
-        for j in range(len(B[0])):
-            for k in range(len(B)):
-                result[i][j] += A[i][k] * B[k][j]
+    for i, row_a in enumerate(matrix_a):
+        for j, column_b in enumerate(zip(*matrix_b)):
+            result[i][j] = sum(row_a[k] * column_b[k] for k in range(len(matrix_b)))
 
     return result
 
+
 # Get matrix A from input
-A = []
+matrix_a_input = []
 print("Enter elements for matrix A (3x3):")
 for i in range(3):
     row = []
     for j in range(3):
-        element = int(input("Enter element A[{}][{}]: ".format(i, j)))
+        element = int(input(f"Enter element A[{i}][{j}]: "))
         row.append(element)
-    A.append(row)
+    matrix_a_input.append(row)
 
 # Get matrix B from input
-B = []
+matrix_b_input = []
 print("Enter elements for matrix B (3x4):")
 for i in range(3):
     row = []
     for j in range(4):
-        element = int(input("Enter element B[{}][{}]: ".format(i, j)))
+        element = int(input(f"Enter element B[{i}][{j}]: "))
         row.append(element)
-    B.append(row)
+    matrix_b_input.append(row)
 
 # Multiply the matrices
-result = multiply_matrices(A, B)
+result = multiply_matrices(matrix_a_input, matrix_b_input)
 
 # Print the result
 print("Resultant matrix:")
-for r in result:
-    print(r)
+for row in result:
+    print(row)

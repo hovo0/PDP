@@ -1,26 +1,32 @@
 class Stack:
+    """
+    Stack data structure implementation.
+    """
+
     def __init__(self):
+        """
+        Initialize an empty stack.
+        """
         self.items = []
 
     def is_empty(self):
         """
-        Check is empty
-        :return:
+        Check if the stack is empty.
+        :return: True if the stack is empty, False otherwise.
         """
         return len(self.items) == 0
 
     def push(self, item):
         """
-        Add some items to the stack
-        :param item:
-        :return:
+        Add an item to the top of the stack.
+        :param item: The item to be added.
         """
         self.items.append(item)
 
     def pop(self):
         """
-        Remove an item from the stack
-        :return:
+        Remove and return the item at the top of the stack.
+        :return: The item at the top of the stack, or None if the stack is empty.
         """
         if self.is_empty():
             return None
@@ -28,8 +34,8 @@ class Stack:
 
     def peek(self):
         """
-        Peek at the item on top of the stack
-        :return:
+        Return the item at the top of the stack without removing it.
+        :return: The item at the top of the stack, or None if the stack is empty.
         """
         if self.is_empty():
             return None
@@ -37,8 +43,8 @@ class Stack:
 
     def size(self):
         """
-        Check the size of the stack
-        :return:
+        Return the number of items in the stack.
+        :return: The size of the stack.
         """
         return len(self.items)
 
@@ -51,12 +57,10 @@ s.push("C")
 
 print(s.size())  # 3
 
-
 item = s.peek()
 print(item)  # "C"
 
 item = s.pop()
 print(item)  # "C"
-
 
 print(s.size())  # 2
